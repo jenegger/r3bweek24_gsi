@@ -1,0 +1,17 @@
+exp	eol_corr	0052_0001	400	768.6	0.0
+exp	eol_corr	0053_0001	550	806.6	0.0
+exp	eol_corr	0054_0001	650	836.5	0.0
+exp	eol_corr	0055_0001	800	862.0	0.0
+exp	eol_corr	0400_0001	340	761.6	0.0
+exp	eol_corr	0400_0001	360	763.2	0.0
+exp	eol_corr	0400_0001	380	765.5	0.0
+exp	eol_corr	0400_0001	450	778.9	0.0
+exp	eol_corr	0400_0001	500	791.9	0.0
+exp	eol_corr	0400_0001	600	821.7	0.0
+exp	eol_corr	0400_0001	700	849.5	0.0
+exp	eol_corr	0400_0001	750	857.2	0.0
+exp	eol_corr	0400_0001	850	863.6	0.0
+exp	eol_corr	0400_0001	900	864.1	0.0
+exp	eol_corr	0400_0001	950	864.5	0.0
+exp	eol_corr	0400_0001	1000	864.9	0.0
+
