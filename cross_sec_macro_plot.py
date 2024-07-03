@@ -169,19 +169,19 @@ reac_cross_sec_charge_geom_corr.sort();
 
 fig,ax = plt.subplots()
 #BEGIN OF GOOD PLOTS ------------------------------
-cross_sec_by_hand_no_tof.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='blue',label="c_54 charge changing",marker="o",alpha=1)
-cross_sec_by_hand_no_tof.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='blue',label="c_1086 charge changing",marker="s",alpha=1)
-cross_sec_by_hand_no_tof.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='blue',label="c_2198 charge changing",marker="^",alpha=1)
+cross_sec_by_hand_no_tof.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='red',label="c_54 charge changing",marker="o",alpha=1)
+cross_sec_by_hand_no_tof.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='red',label="c_1086 charge changing",marker="s",alpha=1)
+cross_sec_by_hand_no_tof.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='red',label="c_2198 charge changing",marker="^",alpha=1)
 
 
-cross_sec_mw12_cut_newempty400.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='forestgreen',label="c_54 reaction",marker="o",alpha=1)
-cross_sec_mw12_cut_newempty400.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='forestgreen',label="c_1086 reaction",marker="s",alpha=1)
-cross_sec_mw12_cut_newempty400.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='forestgreen',label="c_2198 reaction",marker="^",alpha=1)
+cross_sec_mw12_cut_newempty400.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='lightskyblue',label="c_54 reaction,this work",marker="o",alpha=1)
+cross_sec_mw12_cut_newempty400.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='lightskyblue',label="c_1086 reaction,this work",marker="s",alpha=1)
+cross_sec_mw12_cut_newempty400.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='lightskyblue',label="c_2198 reaction,this work",marker="^",alpha=1)
 
 
-cross_sec_reac_lukas.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='limegreen',label="c_54 reaction L. Ponnath",marker="o",alpha=1)
-cross_sec_reac_lukas.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='limegreen',label="c_1086 reaction L. Ponnath",marker="s",alpha=1)
-cross_sec_reac_lukas.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='limegreen',label="c_2198 reaction L. Ponnath",marker="^",alpha=1)
+cross_sec_reac_lukas.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='limegreen',label="c_54 reaction, from Ref [1] ",marker="o",alpha=1)
+cross_sec_reac_lukas.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='limegreen',label="c_1086 reaction, from Ref [1]",marker="s",alpha=1)
+cross_sec_reac_lukas.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='limegreen',label="c_2198 reaction, from Ref [1]",marker="^",alpha=1)
 
 
 cross_sec_eol_theory.eol_theory.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='black',label="Glauber",marker="o",alpha=1)
@@ -224,9 +224,9 @@ cross_sec_eol_theory_corr.eol_corr_theory.plot(kind='scatter',ax=ax,x= 'energy',
 #cross_sec_charge_geom_corr.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='blue',label="c_2198 latest charge changing",marker="^",alpha=1)
 
 
-reac_cross_sec_charge_geom_corr.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='orange',label="c_54 geom. corr",marker="o",alpha=1)
-reac_cross_sec_charge_geom_corr.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='orange',label="c_1086 geom. corr.",marker="s",alpha=1)
-reac_cross_sec_charge_geom_corr.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='orange',label="c_2198 geom. corr.",marker="^",alpha=1)
+reac_cross_sec_charge_geom_corr.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='orange',label="c_54 geom.corr,this work",marker="o",alpha=1)
+reac_cross_sec_charge_geom_corr.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='orange',label="c_1086 geom.corr.,this work",marker="s",alpha=1)
+reac_cross_sec_charge_geom_corr.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='orange',label="c_2198 geom.corr.,this work",marker="^",alpha=1)
 
 
 
