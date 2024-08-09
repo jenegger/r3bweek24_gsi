@@ -33,6 +33,31 @@ class cross_sec_block:
         self.eol_corr_theory = self.content.loc[(self.content["targettype"] == "eol_corr")]
         #self.c_2198["energy"] = self.c_2198["energy"] ;
 
+##-----this is for the special case when using thin target as empty target-----
+class fake_cross_sec_block:
+    def __init__(self):
+        self.cf_thin = pd.DataFrame()
+        self.cf_thick = pd.DataFrame()
+        self.content = pd.DataFrame()
+    def read_file(self,filename):
+        self.filename = filename
+        try:
+            with open(self.filename, 'r') as file:
+                self.content = pd.read_csv(filename,sep='\t',header=None)
+                print(self.content)
+                self.content.columns = ["datatype","targettype","RunID","energy","cross_section","stat_error_cross_sec"]
+        except FileNotFoundError:
+            print(f"Error: File '{self.filename}' not found.")
+        except Exception as e:
+            print(f"Error: An unexpected error occurred - {e}")
+
+    def sort(self):
+        self.cf_thin = self.content.loc[(self.content["targettype"] == "cf_thin")]
+        self.cf_thick = self.content.loc[(self.content["targettype"] == "cf_thick")]
+        self.cf_thick["energy"] = self.cf_thick["energy"] - 4
+
+###--------------------------------------------------------------------
+
 
 #cross_sec_tof_hit = cross_sec_block()
 #cross_sec_tof_hit.read_file("out_wed_comb_with_tof.txt")
@@ -171,6 +196,15 @@ charge_changing_no_timing_cut = cross_sec_block();
 charge_changing_no_timing_cut.read_file("/home/tobiasjenegger/jupy/python_macros/cross_sections_sophisticated/reaction_cross_sec_dir/out_charge_changing_no_time_cut.txt")
 charge_changing_no_timing_cut.sort();
 
+charge_changing_no_timing_diagonal_cut = cross_sec_block();
+charge_changing_no_timing_diagonal_cut.read_file("/home/tobiasjenegger/jupy/python_macros/cross_sections_sophisticated/reaction_cross_sec_dir/out_combined_diagonal_cut.txt")
+charge_changing_no_timing_diagonal_cut.sort();
+
+charge_changing_no_timing_diagonal_fake_empty = fake_cross_sec_block();
+charge_changing_no_timing_diagonal_fake_empty.read_file("/home/tobiasjenegger/jupy/python_macros/cross_sections_sophisticated/reaction_cross_sec_dir/out_combined_diagonal_cut_no_empty.txt")
+charge_changing_no_timing_diagonal_fake_empty.sort();
+
+
 fig,ax = plt.subplots()
 #BEGIN OF GOOD PLOTS ------------------------------
 cross_sec_by_hand_no_tof.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='red',label="c_54 charge changing",marker="o",alpha=1)
@@ -232,10 +266,20 @@ reac_cross_sec_charge_geom_corr.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cr
 reac_cross_sec_charge_geom_corr.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='orange',label="c_1086 geom.corr.,this work",marker="s",alpha=1)
 reac_cross_sec_charge_geom_corr.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='orange',label="c_2198 geom.corr.,this work",marker="^",alpha=1)
 
-charge_changing_no_timing_cut.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='pink',label="charge chang, no time cut",marker="o",alpha=1)
-charge_changing_no_timing_cut.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='pink',label="charge chang., no time cut",marker="s",alpha=1)
-charge_changing_no_timing_cut.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='pink',label="charge chang., no time cut",marker="^",alpha=1)
+#charge_changing_no_timing_cut.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='pink',label="charge chang, no time cut",marker="o",alpha=1)
+#charge_changing_no_timing_cut.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='pink',label="charge chang., no time cut",marker="s",alpha=1)
+#charge_changing_no_timing_cut.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='pink',label="charge chang., no time cut",marker="^",alpha=1)
+#
+charge_changing_no_timing_diagonal_cut.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='grey',label="charge chang, no time diagonal",marker="o",alpha=1)
+charge_changing_no_timing_diagonal_cut.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='grey',label="charge chang., no time diagonal",marker="s",alpha=1)
+charge_changing_no_timing_diagonal_cut.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='grey',label="charge chang., no time diagonal",marker="^",alpha=1)
 
+
+#charge_changing_no_timing_diagonal_fake_empty.cf_thin.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='grey',label="charge chang,fake thin",marker="o",alpha=1)
+#charge_changing_no_timing_diagonal_fake_empty.cf_thick.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='grey',label="charge chang,fake thick",marker="s",alpha=1)
+
+print("just a short test..")
+print(charge_changing_no_timing_diagonal_fake_empty.cf_thick)
 
 #cross_sec_mw12_cut_newempty400_notpat_no_strict_mw0_cut.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='blue',label="c_54 charge changing strict mw0 cut",marker="o",alpha=1)
 #cross_sec_mw12_cut_newempty400_notpat_no_strict_mw0_cut.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='blue',label="c_1086 charge changing strict mw0 cut",marker="s",alpha=1)
@@ -263,7 +307,7 @@ charge_changing_no_timing_cut.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cr
 
 plt.xlabel("Beam Energy [AMeV]", fontsize=16)
 plt.ylabel("Cross Section [mbarn]", fontsize=16)
-plt.legend(fontsize=6)
+plt.legend(fontsize=5)
 plt.grid(True,color = 'black', linestyle = '--', linewidth = 0.5,which="both")
 plt.ylim(720,880)
 #plt.show()
