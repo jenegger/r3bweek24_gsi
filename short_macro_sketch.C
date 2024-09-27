@@ -21,23 +21,25 @@ for (int i = 0; i < entries_twim; i++){
 
 	}
 
+bool trefs_existent = true;
+if (tref_time_up == 0 || tref_time_down == 0) trefs_existent = false;
 
+bool clean_twim_event = true;
+for (int i = 0; i < 16; i++){
+	if (vec_time2d[i][1] != 0) clean_twim_event = false;
+	if (vec_time2d[i][0] == 0) clean_twim_event = false;
+	}
 
-
-
-
-
-
-	first check that the anodeid is lower than 16	
-	if lower
-		if vec != 0:
-			fill the second entry in the vector i 
-		else fill the first entry in vector i
-	if higher -> check section and fill then the trefs..
+if (clean_twim_event && trefs_existent){
+for (int i = 0; i < 16; i++){
+	if (i < 8) h1_twim_sec0_time_anode[i]->Fill(vec_time2d[i][0]-tref_time_up);
+	else h1_twim_sec0_time_anode[i]->Fill(vec_time2d[i][0]-tref_time_down);
+	}
 }
 
-bool trefs_existent = false;
-if (trefs exist) -> set to true
+
+
+
 
 clean event = true
 for (loop over vector)
