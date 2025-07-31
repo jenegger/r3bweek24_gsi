@@ -218,7 +218,7 @@ final_tot_reac_jentob.read_file("/home/tobiasjenegger/r3bweek_2024_gsi/merged_to
 final_tot_reac_jentob.sort();
 
 final_charge_ch_jentob = cross_sec_block();
-final_charge_ch_jentob.read_file("/home/tobiasjenegger/r3bweek_2024_gsi/geo_corr_output_cc_cs_final.txt")
+final_charge_ch_jentob.read_file("/home/tobiasjenegger/r3bweek_2024_gsi/geo_corr_output_cc_cs_final_plot.txt")
 final_charge_ch_jentob.sort();
 
 
@@ -349,4 +349,4 @@ plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order],fontsi
 plt.grid(True,color = 'black', linestyle = '--', linewidth = 0.5,which="both")
 plt.ylim(720,880)
 #plt.show()
-plt.savefig("result_plot_phd_cross_section.png",dpi=300)
+plt.savefig("result_plot_phd_cross_section.png",dpi=300,bbox_inches="tight")
