@@ -258,10 +258,10 @@ final_charge_ch_jentob.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_secti
 final_charge_ch_jentob.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='red',label="c_1086 charge changing, this work ",marker="s",alpha=0.5,s=30)
 final_charge_ch_jentob.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='red',label="c_2198 charge changing, this work ",marker="^",alpha=0.5,s=30)
 
-#this one is just the scaled charge changing cross section using as ref. the 650 AMeV values
-scaled_jentob.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='black',label="c_54 scaled ",marker="o",s=30)
-scaled_jentob.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='black',label="c_1086 scaled",marker="s",s=30)
-scaled_jentob.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='black',label="c_2198 scaled",marker="^",s=30)
+###this one is just the scaled charge changing cross section using as ref. the 650 AMeV values
+#scaled_jentob.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='black',label="c_54 scaled ",marker="o",s=30)
+#scaled_jentob.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='black',label="c_1086 scaled",marker="s",s=30)
+#scaled_jentob.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='black',label="c_2198 scaled",marker="^",s=30)
 
 print("HELOO TOBIAS")
 print(type(cross_sec_prev_exp.prev_exp))
