@@ -227,7 +227,8 @@ scaled_jentob = cross_sec_block();
 scaled_jentob.read_file("/home/tobiasjenegger/r3bweek_2024_gsi/only_scaled_tot_interaction_final.txt")
 scaled_jentob.sort();
 
-fig,ax = plt.subplots(figsize=(15,9.5))
+#fig,ax = plt.subplots(figsize=(15,9.5))
+fig,ax = plt.subplots(figsize=(15,13))
 #BEGIN OF GOOD PLOTS ------------------------------
 #cross_sec_by_hand_no_tof.c_54.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='red',label="c_54 charge changing",marker="o",alpha=1)
 #cross_sec_by_hand_no_tof.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='red',label="c_1086 charge changing",marker="s",alpha=1)
@@ -347,12 +348,14 @@ print(charge_changing_no_timing_diagonal_fake_empty.cf_thick)
 # cross_sec_mw12_cut_newempty400_notpat_4sigma_cut.c_1086.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='blue',label="c_1086 charge changing 4sigma",marker="s",alpha=1)
 # cross_sec_mw12_cut_newempty400_notpat_4sigma_cut.c_2198.plot(kind='scatter',ax=ax,x= 'energy',y='cross_section',yerr="stat_error_cross_sec",color='blue',label="c_2198 charge changing 4sigma",marker="^",alpha=1)
 
-plt.xlabel("Beam Energy [AMeV]", fontsize=16)
-plt.ylabel("Cross Section [mbarn]", fontsize=16)
+plt.xlabel("Beam Energy [AMeV]", fontsize=20)
+plt.ylabel("Cross Section [mbarn]", fontsize=20)
+plt.xticks(fontsize=14)
+plt.yticks(fontsize=14)
 #---
 handles, labels = plt.gca().get_legend_handles_labels()
 order = [5,6,7,8,9,10,0,1,2,11,3,4]
-plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order],fontsize=12,loc="upper left")
+plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order],fontsize=13,loc="upper left")
 #---
 
 #plt.legend(fontsize=12,loc="upper left")
